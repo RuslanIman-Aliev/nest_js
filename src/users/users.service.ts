@@ -5,6 +5,9 @@ import { User } from './user.entity';
 
 @Injectable()
 export class UsersService {
+  // signin(email: string, password: string) {
+  //   throw new Error('Method not implemented.');
+  // }
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
   create(email: string, password: string) {
     const user = this.repo.create({ email, password });
