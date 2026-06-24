@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Exclude } from 'class-transformer';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Report } from 'src/reports/report.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
 export class User {
@@ -12,4 +14,7 @@ export class User {
 
   @Column()
   password!: string;
+
+  @OneToMany(() => Report, (report) => report.user)
+  reports!: Report[];
 }
